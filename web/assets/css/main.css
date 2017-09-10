@@ -2,7 +2,7 @@ body {
     background: linear-gradient(to bottom right, darkblue, dodgerblue);
 }
 
-#title {
+.title {
     margin-top: 5%;
     margin-bottom: 5%;
     font-size: xx-large;
@@ -13,26 +13,26 @@ body {
     margin-left: 31.5%;
 }
 
-#subtitle {
+.subtitle {
     font-size: x-large;
     color: aqua;
     font-family: Arial Narrow;
 }
 
-#body {
+.body {
     margin: auto;
     width: 825px;
     text-align: center;
     padding: 0;
 }
 
-#line {
+.line {
     color: azure;
     width: 40%;
     margin: auto;
 }
 
-#text-area {
+.text-area {
     background: mintcream;
     border: inset;
     border-color: darkblue;
@@ -63,7 +63,7 @@ body {
     height: 850px;
 }
 
-#text-box {
+.text-box {
     margin-left: 7.5%;
 }
 
