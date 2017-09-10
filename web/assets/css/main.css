@@ -48,7 +48,7 @@ body {
     width: 825px;
 }
 
-#text-area2 {
+.text-area2 {
     background: mintcream;
     border: inset;
     border-color: darkblue;
