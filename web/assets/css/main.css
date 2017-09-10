@@ -1,0 +1,188 @@
+body {
+    background: linear-gradient(to bottom right, darkblue, dodgerblue);
+}
+
+#title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: xx-large;
+    text-align: center;
+    font-family: Arial Black;
+    color: azure;
+    width: 37%;
+    margin-left: 31.5%;
+}
+
+#subtitle {
+    font-size: x-large;
+    color: aqua;
+    font-family: Arial Narrow;
+}
+
+#body {
+    margin: auto;
+    width: 825px;
+    text-align: center;
+    padding: 0;
+}
+
+#line {
+    color: azure;
+    width: 40%;
+    margin: auto;
+}
+
+#text-area {
+    background: mintcream;
+    border: inset;
+    border-color: darkblue;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    border-width: 5px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-right: 35px;
+    padding-top: 15px;
+    height: 770px;
+    width: 825px;
+}
+
+#text-area2 {
+    background: mintcream;
+    border: inset;
+    border-color: darkblue;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    border-width: 5px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-right: 35px;
+    padding-top: 15px;
+    height: 850px;
+}
+
+#text-box {
+    margin-left: 7.5%;
+}
+
+.image-round {
+    text-align: center;
+    border-radius: 7%;
+    -webkit-border-radius: 7%;
+    -moz-border-radius: 7%;
+    padding: 18px 17px 0 17px;
+}
+
+.image-circle {
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    padding: 18px 17px 0 17px;
+}
+
+.features a {
+    color: transparent;
+}
+
+.features {
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.features li {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 50px;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 40%;
+    height: 310px;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    border: medium;
+    background-color: midnightblue;
+}
+
+.features h1 {
+    text-align: center;
+    font-size: 30px;
+    color: azure;
+    font-family: Arial Black;
+}
+
+.features p {
+    font-size: 18.5px;
+    color: lightgray;
+    font-family: Arial Narrow;
+    margin-left: 4%;
+}
+
+.features li:nth-child(1) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    float: left;
+}
+
+.features li:nth-child(2) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    float: right;
+}
+
+.features li:nth-child(3) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    float: left;
+    margin-top: 15px;
+}
+
+.features li:nth-child(4) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    float:right;
+    margin-top: 15px;
+}
+
+.steps {
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+}
+
+.steps li {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: block;
+    position: relative;
+    width: 95%;
+    border: medium;
+    height: 140px;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+}
+
+.steps li:nth-child(1) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+}
+
+.steps li:nth-child(2) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    margin-top: 15px;
+}
+
+.steps li:nth-child(3) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    margin-top: 15px;
+}
+
+.steps li:nth-child(4) {
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+    margin-top: 15px;
+}
