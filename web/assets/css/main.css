@@ -151,6 +151,8 @@ body {
     overflow: visible;
     padding: 0;
     width: 100%;
+    font-family: Arial Black;
+    color: azure;
 }
 
 .steps li {
@@ -185,4 +187,67 @@ body {
 .steps li:nth-child(4) {
     background: linear-gradient(to bottom right, deepskyblue, royalblue);
     margin-top: 15px;
+}
+
+.steps .index {
+    text-align: left;
+    float: left;
+    font-size: 60px;
+    color: azure;
+    font-family: Arial Black;
+    margin-left: 2%;
+}
+
+.steps .additional {
+    margin-left: 3%;
+    margin-top: 0.5%;
+    color: azure;
+    font-family: Arial Black;
+    width: 43%;
+    float: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.steps .description {
+    margin-left: 2%;
+    color: azure;
+    font-family: Arial Black;
+    width: 35%;
+    float: left;
+}
+
+.steps .verticalRule {
+    height: 140%;
+    width: 0.5%;
+    background: azure;
+    border: transparent;
+    float: left;
+    margin-left: 5%;
+}
+
+.steps .verticalRule2 {
+    height: 140%;
+    width: 0.5%;
+    background: azure;
+    border: transparent;
+    float: left;
+    margin-left: 1%;
+    margin-bottom: 100%;
+}
+
+input {
+    width: 75%;
+    color: deepskyblue;
+    font-family: Arial Black;
+    border-radius: 4px;
+    border: transparent;
+    padding: 0.5% 0.5%;
+}
+
+input[type=submit] {
+    background-color: azure;
+    color: black;
+    width: 76%;
+    padding: 0.5% 0.5%;
 }
