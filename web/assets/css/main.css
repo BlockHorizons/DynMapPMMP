@@ -206,7 +206,6 @@ body {
     width: 43%;
     float: left;
     white-space: nowrap;
-    cursor: pointer;
 }
 
 .steps .description {

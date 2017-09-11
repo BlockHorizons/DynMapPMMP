@@ -7,7 +7,6 @@
 </head>
 <body>
 <div id="title">
-	<h1><?php getName()?></h1>
 	<div id="line">
 		<hr/>
 	</div>
@@ -23,11 +22,3 @@
 </div>
 </body>
 </html>
-
-<?php
-
-function getName(): string {
-	return "hi";
-}
-
-?>
