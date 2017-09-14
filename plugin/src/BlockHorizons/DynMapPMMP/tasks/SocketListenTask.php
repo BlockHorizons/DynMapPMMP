@@ -2,8 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace BlockHorizons\DynMapPMMP;
+namespace BlockHorizons\DynMapPMMP\tasks;
 
+use BlockHorizons\DynMapPMMP\DynMapPMMP;
 use pocketmine\scheduler\PluginTask;
 
 class SocketListenTask extends PluginTask {
@@ -19,6 +20,9 @@ class SocketListenTask extends PluginTask {
 	}
 
 	public function onRun(int $currentTick) {
-		// TODO: Implement onRun() method.
+		if(($socket = socket_accept($this->socket)) === false) {
+			return;
+		}
+		var_dump(socket_read($socket, 2048));
 	}
 }

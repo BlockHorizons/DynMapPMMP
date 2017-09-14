@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Introduction</title>
+	<title><?php echo($_REQUEST['ServerName'] . 's DynMap'); ?></title>
 	<link rel="stylesheet" href="assets/css/main.css"/>
 </head>
-<body>
+<body class="map-background">
 <div id="title">
 	<div id="line">
 		<hr/>

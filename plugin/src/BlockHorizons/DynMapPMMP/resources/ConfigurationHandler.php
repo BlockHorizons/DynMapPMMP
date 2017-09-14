@@ -14,11 +14,12 @@ class ConfigurationHandler {
 	private $data = [];
 
 	public function __construct(DynMapPMMP $dynMap) {
+		$dynMap->saveDefaultConfig();
 		$this->dynMap = $dynMap;
 		$this->data = yaml_parse_file($dynMap->getDataFolder() . "config.yml");
 		if(!$this->checkAPIKey()) {
-			$dynMap->getLogger()->error("API Key \'" . $this->getAPIKey() . "\' is invalid!");
-			$dynMap->getServer()->getPluginManager()->disablePlugin($dynMap);
+			$dynMap->getLogger()->error("API Key \"" . $this->getAPIKey() . "\" is invalid!");
+			//$dynMap->getServer()->getPluginManager()->disablePlugin($dynMap);
 		}
 	}
 
@@ -33,13 +34,14 @@ class ConfigurationHandler {
 	 * @return bool
 	 */
 	public function checkAPIKey(): bool {
-		$serverCredentials = explode(":", base64_decode($this->data["API-Key"]));
-		$address = $serverCredentials[0];
-		if(strpos($address, ".") === false) {
+		if(empty($this->data["API-Key"])) {
 			return false;
 		}
-		$port = $serverCredentials[1];
-		if(!is_numeric($port)) {
+		$serverCredentials = explode(":", base64_decode($this->data["API-Key"]));
+		if(strpos($serverCredentials[0], ".") === false) {
+			return false;
+		}
+		if(!is_numeric($serverCredentials[1])) {
 			return false;
 		}
 		return true;
