@@ -45,7 +45,7 @@ class Generated2DChunk {
 	/**
 	 * @param array $data
 	 */
-	public function addData(array $data) {
+	public function addData(array $data): void {
 		$this->blockData = $data;
 	}
 

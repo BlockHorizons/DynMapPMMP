@@ -7,7 +7,7 @@ namespace BlockHorizons\DynMapPMMP\tasks;
 use BlockHorizons\DynMapPMMP\DynMapPMMP;
 use pocketmine\scheduler\PluginTask;
 
-class SocketListenTask extends PluginTask {
+class BufferReadTask extends PluginTask {
 
 	/** @var resource */
 	private $socket = null;
@@ -20,12 +20,15 @@ class SocketListenTask extends PluginTask {
 	}
 
 	public function onRun(int $currentTick): void {
-		if(($socket = socket_accept($this->socket)) === false) {
-			return;
-		}
+		$buffer = socket_read($this->socket, 128);
 		/** @var DynMapPMMP $owner */
 		$owner = $this->getOwner();
-		$this->getOwner()->getServer()->getScheduler()->scheduleDelayedTask(new BufferReadTask($owner, $socket), 5);
-		$this->getOwner()->tempSocket = $socket;
+		switch($buffer) {
+			default:
+				return;
+			case "REQUEST_INITIAL_REGION":
+				$owner->requestRegion(0, 0);
+				return;
+		}
 	}
 }

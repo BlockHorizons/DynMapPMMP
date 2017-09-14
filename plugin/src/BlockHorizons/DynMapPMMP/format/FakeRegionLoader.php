@@ -34,7 +34,7 @@ class FakeRegionLoader extends RegionLoader {
 		$this->fileExtension = $fileExtension;
 	}
 
-	public function open(){
+	public function open(): void {
 		$exists = file_exists($this->filePath);
 		if(!$exists){
 			touch($this->filePath);
@@ -62,14 +62,14 @@ class FakeRegionLoader extends RegionLoader {
 	 *
 	 * @return Chunk|null
 	 */
-	public function nbtDeserialize(string $data){
+	public function nbtDeserialize(string $data): ?Chunk {
 		switch($this->fileExtension) {
 			case "mcr":
 				$nbt = new NBT(NBT::BIG_ENDIAN);
 				try{
 					$nbt->readCompressed($data);
 					$chunk = $nbt->getData();
-					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)){
+					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)) {
 						throw new ChunkException("Invalid NBT format");
 					}
 					$subChunks = [];
@@ -77,33 +77,33 @@ class FakeRegionLoader extends RegionLoader {
 					$fullIds = isset($chunk->Blocks) ? $chunk->Blocks->getValue() : str_repeat("\x00", 32768);
 					$fullData = isset($chunk->Data) ? $chunk->Data->getValue() : str_repeat("\x00", 16384);
 
-					for($y = 0; $y < 8; ++$y){
+					for($y = 0; $y < 8; ++$y) {
 						$offset = ($y << 4);
 						$ids = "";
-						for($i = 0; $i < 256; ++$i){
+						for($i = 0; $i < 256; ++$i) {
 							$ids .= substr($fullIds, $offset, 16);
 							$offset += 128;
 						}
 						$data = "";
 						$offset = ($y << 3);
-						for($i = 0; $i < 256; ++$i){
+						for($i = 0; $i < 256; ++$i) {
 							$data .= substr($fullData, $offset, 8);
 							$offset += 64;
 						}
 						$subChunks[$y] = new SubChunk($ids, $data);
 					}
-					if(isset($chunk->BiomeColors)){
+					if(isset($chunk->BiomeColors)) {
 						$biomeIds = ChunkUtils::convertBiomeColors($chunk->BiomeColors->getValue());
-					}elseif(isset($chunk->Biomes)){
+					} elseif(isset($chunk->Biomes)) {
 						$biomeIds = $chunk->Biomes->getValue();
-					}else{
+					} else {
 						$biomeIds = "";
 					}
 					$heightMap = [];
-					if(isset($chunk->HeightMap)){
-						if($chunk->HeightMap instanceof ByteArrayTag){
+					if(isset($chunk->HeightMap)) {
+						if($chunk->HeightMap instanceof ByteArrayTag) {
 							$heightMap = array_values(unpack("C*", $chunk->HeightMap->getValue()));
-						}elseif($chunk->HeightMap instanceof IntArrayTag){
+						}elseif($chunk->HeightMap instanceof IntArrayTag) {
 							$heightMap = $chunk->HeightMap->getValue();
 						}
 					}
@@ -120,7 +120,7 @@ class FakeRegionLoader extends RegionLoader {
 					$result->setPopulated(isset($chunk->TerrainPopulated) ? ((bool) $chunk->TerrainPopulated->getValue()) : false);
 					$result->setGenerated(true);
 					return $result;
-				}catch(\Throwable $e){
+				} catch(\Throwable $e) {
 					MainLogger::getLogger()->logException($e);
 					return null;
 				}
@@ -128,17 +128,17 @@ class FakeRegionLoader extends RegionLoader {
 			default:
 			case "mca":
 				$nbt = new NBT(NBT::BIG_ENDIAN);
-				try{
+				try {
 					$nbt->readCompressed($data);
 					$chunk = $nbt->getData();
-					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)){
+					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)) {
 						throw new ChunkException("Invalid NBT format");
 					}
 					$chunk = $chunk->Level;
 					$subChunks = [];
-					if($chunk->Sections instanceof ListTag){
-						foreach($chunk->Sections as $subChunk){
-							if($subChunk instanceof CompoundTag){
+					if($chunk->Sections instanceof ListTag) {
+						foreach($chunk->Sections as $subChunk) {
+							if($subChunk instanceof CompoundTag) {
 								$subChunks[$subChunk->Y->getValue()] = new SubChunk(
 									ChunkUtils::reorderByteArray($subChunk->Blocks->getValue()),
 									ChunkUtils::reorderNibbleArray($subChunk->Data->getValue()),
@@ -148,11 +148,11 @@ class FakeRegionLoader extends RegionLoader {
 							}
 						}
 					}
-					if(isset($chunk->BiomeColors)){
+					if(isset($chunk->BiomeColors)) {
 						$biomeIds = ChunkUtils::convertBiomeColors($chunk->BiomeColors->getValue()); //Convert back to original format
-					}elseif(isset($chunk->Biomes)){
+					} elseif(isset($chunk->Biomes)) {
 						$biomeIds = $chunk->Biomes->getValue();
-					}else{
+					} else {
 						$biomeIds = "";
 					}
 					$result = new Chunk(
@@ -168,7 +168,7 @@ class FakeRegionLoader extends RegionLoader {
 					$result->setPopulated(isset($chunk->TerrainPopulated) ? ((bool) $chunk->TerrainPopulated->getValue()) : false);
 					$result->setGenerated(true);
 					return $result;
-				}catch(\Throwable $e){
+				} catch(\Throwable $e) {
 					MainLogger::getLogger()->logException($e);
 					return null;
 				}
@@ -178,14 +178,14 @@ class FakeRegionLoader extends RegionLoader {
 				try{
 					$nbt->readCompressed($data);
 					$chunk = $nbt->getData();
-					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)){
+					if(!isset($chunk->Level) or !($chunk->Level instanceof CompoundTag)) {
 						throw new ChunkException("Invalid NBT format");
 					}
 					$chunk = $chunk->Level;
 					$subChunks = [];
-					if($chunk->Sections instanceof ListTag){
-						foreach($chunk->Sections as $subChunk){
-							if($subChunk instanceof CompoundTag){
+					if($chunk->Sections instanceof ListTag) {
+						foreach($chunk->Sections as $subChunk) {
+							if($subChunk instanceof CompoundTag) {
 								$subChunks[$subChunk->Y->getValue()] = new SubChunk(
 									$subChunk->Blocks->getValue(),
 									$subChunk->Data->getValue(),
@@ -208,16 +208,21 @@ class FakeRegionLoader extends RegionLoader {
 					$result->setPopulated(isset($chunk->TerrainPopulated) ? ((bool) $chunk->TerrainPopulated->getValue()) : false);
 					$result->setGenerated(true);
 					return $result;
-				}catch(\Throwable $e){
+				} catch(\Throwable $e) {
 					MainLogger::getLogger()->logException($e);
 					return null;
 				}
 				break;
 		}
-
 	}
 
-	public function readChunk(int $x, int $z){
+	/**
+	 * @param int $x
+	 * @param int $z
+	 *
+	 * @return DynMap2DChunk|null
+	 */
+	public function readChunk(int $x, int $z): ?DynMap2DChunk{
 		$index = self::getChunkOffset($x, $z);
 		if($index < 0 or $index >= 4096){
 			return null;

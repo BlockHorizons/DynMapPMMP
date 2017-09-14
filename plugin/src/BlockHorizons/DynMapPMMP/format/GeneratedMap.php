@@ -26,7 +26,7 @@ class GeneratedMap {
 	/**
 	 * @param Generated2DChunk $chunk
 	 */
-	public function addChunk(Generated2DChunk $chunk) {
+	public function addChunk(Generated2DChunk $chunk): void {
 		$this->chunks[] = $chunk;
 		if($chunk->getX() > $this->maxWidth) {
 			$this->maxWidth = $chunk->getX();

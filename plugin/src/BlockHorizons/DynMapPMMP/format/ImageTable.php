@@ -26,6 +26,8 @@ class ImageTable {
 	 * @param int $data
 	 *
 	 * @return resource
+	 *
+	 * TODO: Support for data.
 	 */
 	public function getImageContentFor(int $id, int $data = 0) {
 		if(!isset($this->imageCache[$id])) {

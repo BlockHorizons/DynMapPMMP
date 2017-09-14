@@ -17,10 +17,6 @@ class ConfigurationHandler {
 		$dynMap->saveDefaultConfig();
 		$this->dynMap = $dynMap;
 		$this->data = yaml_parse_file($dynMap->getDataFolder() . "config.yml");
-		if(!$this->checkAPIKey()) {
-			$dynMap->getLogger()->error("API Key \"" . $this->getAPIKey() . "\" is invalid!");
-			//$dynMap->getServer()->getPluginManager()->disablePlugin($dynMap);
-		}
 	}
 
 	/**
@@ -31,26 +27,9 @@ class ConfigurationHandler {
 	}
 
 	/**
-	 * @return bool
+	 * @return int
 	 */
-	public function checkAPIKey(): bool {
-		if(empty($this->data["API-Key"])) {
-			return false;
-		}
-		$serverCredentials = explode(":", base64_decode($this->data["API-Key"]));
-		if(strpos($serverCredentials[0], ".") === false) {
-			return false;
-		}
-		if(!is_numeric($serverCredentials[1])) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAPIKey(): string {
-		return $this->data["API-Key"];
+	public function getDynMapPort(): int {
+		return (int) $this->data["DynMap-Port"];
 	}
 }
