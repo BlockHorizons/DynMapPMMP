@@ -25,6 +25,7 @@ class DynMapPMMP extends PluginBase {
 		socket_bind($this->socket, "127.0.0.1", $this->configHandler->getDynMapPort());
 		socket_listen($this->socket, 5);
 		socket_set_nonblock($this->socket);
+		$this->getLogger()->info("Socket listening for connections...");
 
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SocketListenTask($this, $this->socket), 5);
 	}
@@ -51,5 +52,6 @@ class DynMapPMMP extends PluginBase {
 	public function submitImage(string $image): void {
 		socket_write($this->tempSocket, "REGION_RESPONSE" . $image, strlen("REGION_RESPONSE" . $image));
 		$this->tempSocket = null;
+		$this->getLogger()->debug("Socket sent to web page.");
 	}
 }

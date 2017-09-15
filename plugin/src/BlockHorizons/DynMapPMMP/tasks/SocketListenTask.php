@@ -27,5 +27,6 @@ class SocketListenTask extends PluginTask {
 		$owner = $this->getOwner();
 		$this->getOwner()->getServer()->getScheduler()->scheduleDelayedTask(new BufferReadTask($owner, $socket), 5);
 		$this->getOwner()->tempSocket = $socket;
+		$this->getOwner()->getLogger()->debug("Socket received from web page.");
 	}
 }
