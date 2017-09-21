@@ -1,22 +1,35 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/helvetica/HelveticaNeue.ttf');
+    src: url('../fonts/helvetica/Helvetica Neu Bold.ttf');
+    src: url('../fonts/helvetica/HelveticaNeue BlackCond.ttf');
+    src: url('../fonts/helvetica/HelveticaNeue Light.ttf');
+    src: url('../fonts/helvetica/HelveticaNeue Medium.ttf');
+    src: url('../fonts/helvetica/HelveticaNeue Thin.ttf');
+    src: url('../fonts/helvetica/HelveticaNeueBd.ttf');
+    src: url('../fonts/helvetica/HelveticaNeueHv.ttf');
+    src: url('../fonts/helvetica/HelveticaNeueIt.ttf');
+    src: url('../fonts/helvetica/HelveticaNeueLt.ttf');
+    src: url('../fonts/helvetica/HelveticaNeueMed.ttf');
+}
+
 body {
-    background: linear-gradient(to bottom right, darkblue, dodgerblue);
+    background: linear-gradient(to bottom right, #4b95ff, #434BE4);
+    font-family: Helvetica Neue;
 }
 
 .title {
     margin-top: 5%;
     margin-bottom: 5%;
-    font-size: xx-large;
+    font-size: 25px;
     text-align: center;
-    font-family: Arial Black;
-    color: azure;
-    width: 37%;
-    margin-left: 31.5%;
+    color: white;
 }
 
 .subtitle {
-    font-size: x-large;
-    color: aqua;
-    font-family: Arial Narrow;
+    font-size: large;
+    color: white;
+    margin-top: -25px;
 }
 
 .body {
@@ -34,17 +47,12 @@ body {
 
 .text-area {
     background: mintcream;
-    border: inset;
-    border-color: darkblue;
-    border-radius: 5%;
-    -webkit-border-radius: 5%;
-    -moz-border-radius: 5%;
-    border-width: 5px;
+    border-radius: 10px;
     text-align: left;
     box-sizing: border-box;
     padding-right: 35px;
     padding-top: 15px;
-    height: 770px;
+    height: 745px;
     width: 825px;
 }
 
@@ -64,7 +72,7 @@ body {
 }
 
 .text-box {
-    margin-left: 7.5%;
+    text-align: center;
 }
 
 .image-round {
@@ -111,18 +119,23 @@ body {
     background-color: midnightblue;
 }
 
+.features ul li{
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+
+.features ul li:hover{
+    box-shadow: 0 10px 15px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.20);
+}
+
 .features h1 {
     text-align: center;
     font-size: 30px;
     color: azure;
-    font-family: Arial Black;
 }
 
 .features p {
-    font-size: 18.5px;
-    color: lightgray;
-    font-family: Arial Narrow;
-    margin-left: 4%;
+    color: white;
 }
 
 .features li:nth-child(1) {
@@ -151,7 +164,6 @@ body {
     overflow: visible;
     padding: 0;
     width: 100%;
-    font-family: Arial Black;
     color: azure;
 }
 
@@ -194,7 +206,6 @@ body {
     float: left;
     font-size: 60px;
     color: azure;
-    font-family: Arial Black;
     margin-left: 2%;
 }
 
@@ -202,7 +213,6 @@ body {
     margin-left: 3%;
     margin-top: 0.5%;
     color: azure;
-    font-family: Arial Black;
     width: 43%;
     float: left;
     white-space: nowrap;
@@ -238,7 +248,6 @@ body {
 input {
     width: 75%;
     color: deepskyblue;
-    font-family: Arial Black;
     border-radius: 4px;
     border: transparent;
     padding: 0.5% 0.5%;
