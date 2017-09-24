@@ -22,7 +22,7 @@ class DynMapPMMP extends PluginBase {
 	public function onEnable(): void {
 		$this->configHandler = new ConfigurationHandler($this);
 		$this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-		socket_bind($this->socket, "127.0.0.1", $this->configHandler->getDynMapPort());
+		socket_bind($this->socket, "127.0.0.1", 80);
 		socket_listen($this->socket, 5);
 		socket_set_nonblock($this->socket);
 		$this->getLogger()->info("Socket listening for connections...");

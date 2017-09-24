@@ -1,5 +1,5 @@
 ---
 # Configuration file for DynMap plugin.
 #
-# Port the web page will be hosted on.
-DynMap-Port: 80
+# Initial region to be loaded on the DynMap Web Page
+Initial-Region: "0,0"

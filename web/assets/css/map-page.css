@@ -1,0 +1,79 @@
+body {
+    overflow: hidden;
+    font-size: 1vw;
+    background: black;
+    font-family: Arial Black;
+    color: azure;
+}
+
+.wrapper {
+    height: 100vw;
+    width: 100vw;
+    margin: 0;
+}
+
+.cursor-hand {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: -o-grab;
+    cursor: grab;
+}
+
+.cursor-hand:active {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: -o-grabbing;
+    cursor: grabbing;
+}
+
+.menu {
+    opacity: 0.75;
+    padding: 0.4em;
+    cursor: auto;
+    right: 0.5%;
+    top: 1.5%;
+    position: fixed;
+    width: 15%;
+    height: 50%;
+}
+
+.menu-activated {
+    text-align: center;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    border: medium;
+    background: linear-gradient(to bottom right, deepskyblue, royalblue);
+}
+
+.menu-deactivated {
+    visibility: hidden;
+}
+
+.box {
+    display: block;
+    opacity: 0.8;
+    background: azure;
+    width: 1.5vw;
+    height: 1.5vw;
+    float: right;
+    border-radius: 15%;
+    font-size: 0;
+    visibility: visible;
+}
+
+.box-deactivated {
+    border: groove;
+}
+
+.box-deactivated:active {
+    border: inset;
+}
+
+.box-activated {
+    border: inset;
+}
+
+.box-activated:active {
+    border: groove;
+}

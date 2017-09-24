@@ -16,6 +16,8 @@ class BufferReadTask extends PluginTask {
 		parent::__construct($dynMap);
 		if(is_resource($socket)) {
 			$this->socket = $socket;
+		} else {
+			throw new \InvalidArgumentException("Invalid resource given in Buffer Reading Task");
 		}
 	}
 
