@@ -61,6 +61,7 @@ class Generated2DChunk {
 	 */
 	public function getImage() {
 		foreach($this->blockData as $index => $image) {
+			if($image === null) continue;
 			imagecopy($this->base, $image, 1 + 17 * ($index & 0x0f), 1 + 17 * ($index >> 4), 0, 0, 16, 16);
 		}
 		return $this->base;
