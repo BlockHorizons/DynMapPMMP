@@ -1,59 +1,78 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DynMapPMMP</title>
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-</head>
-<body>
-    <div class="title">
-        <h1>DynMapPMMP</h1>
-        <div class="subtitle">
-            <p>Dynamic Map for PocketMine-MP</p>
-        </div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DynMapPMMP</title>
 
-    <div class="body">
-        <div class="text-area">
-            <div class="features">
-                <ul>
-                    <li>
-                        <a href="introduction.html"><img alt="FillUp" src="assets/images/fill-up-picture.jpg" width="98%" height="38.5%" class="image-round"></a>
-                        <div class="text-box">
-                            <a href="introduction.html"><h1><i class="fa fa-bookmark"></i> Introduction</h1></a>
-                            <hr>
-                            <p>Learn more about DynMapPMMP.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="getting-started.html"><img alt="ImageTest" src="assets/images/fill-up-picture.jpg" width="98%" height="38.5%" class="image-round"></a>
-                        <div class="text-box">
-                           <a href="getting-started.html"><h1><i class="fa fa-pencil"></i> Getting Started</h1></a>
-                            <hr>
-                            <p>Create my DynMapPMMP.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#"><img alt="FillUp" src="assets/images/fill-up-picture.jpg" width="98%" height="38.5%" class="image-round"></a>
-                        <div class="text-box">
-                            <a href="https://github.com/BlockHorizons/DynMapPMMP"><h1><i class="fa fa-code"></i> Source Code</h1></a>
-                            <hr>
-                            <p>View source code, report an issue, or contribute.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#"><img alt="FillUp" src="assets/images/fill-up-picture.jpg" width="98%" height="38.5%" class="image-round"></a>
-                        <div class="text-box">
-                            <h1><i class="fa fa-book"></i> Documentation</h1>
-                            <hr>
-                            <p>View documentation & API usage.</p>
-                        </div>
-                    </li>
-                </ul>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <script type="text/javascript" src="assets/js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <img id="logo" alt="logo" src="./assets/images/logo.svg"></img>
+            <h2>DynMapPMMP</h2>
+            <div class="headerlinks">
+                <a href="https://github.com/BlockHorizons/DynMapPMMP" style="text-decoration: none; color: inherit;">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+        </header>
+        <div class="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "initialIndex": 1 }'>
+            <div class="carousel-cell" style="background-image: url(./assets/images/header1.jpg)">
+                <h1>DynMapPMMP</h1>
+                <h3>an online map for your PocketMine Server</h3>
+            </div>
+            <div class="carousel-cell" style="background-image: url(./assets/images/header2.jpg)">
+                <h1>DynMapPMMP</h1>
+                <h3>by BlockHorizons</h3>
+            </div>
+            <div class="carousel-cell" style="background-image: url(./assets/images/header3.jpg)">
+                <h1>DynMapPMMP</h1>
+                <h3>the first of it's kind</h3>
             </div>
         </div>
-    </div>
-</body>
+        <div class="content">
+            <div class="container" style="background-image: url(./assets/images/cat.jpg);">
+                <div class="left">
+                    <h2>Introduction:</h2>
+                    <p>Learn more about DynMapPMMP</p>
+                    <a class="btn" href="introduction.html">Click here</a>
+                </div>
+                <div class="bar"></div>
+            </div>
+            <div class="container" style="background-image: url(./assets/images/rocket.jpg);">
+                <div class="left">
+                    <h2>Getting Started:</h2>
+                    <p>Create my DynMapPMMP.</p>
+                    <a class="btn" href="getting-started.html">Click here</a>
+                </div>
+                <div class="bar"></div>
+            </div>
+            <div class="container" style="background-image: url(./assets/images/docs.jpg);">
+                <div class="left">
+                    <h2>Documentation:</h2>
+                    <p>View documentation & API usage.</p>
+                    <a class="btn" href="javascript:alert('Not finished yet, sorry!')">Click here</a>
+                </div>
+                <div class="bar"></div>
+            </div>
+            <div class="container" style="background-image: url(./assets/images/code.jpg);">
+                <div class="left">
+                    <h2>It's open source!</h2>
+                    <p>Check out our code on <a href="https://github.com/BlockHorizons/DynMapPMMP" style="color: inherit;">GitHub</a></p>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </body>
 </html>
