@@ -98,20 +98,28 @@ header {
 }
 
 @media screen and (max-width: 750px) {
+    .carousel-cell > h1 {
+        font-size: 3em;
+    }
     .container {
         height: fit-content;
     }
     .container > .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 100%;
         text-align: center;
-        margin-left: 0px;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        background-color: rgba(255, 255, 255, 0.7);
+        margin-left: 0;
+        background-color: rgba(255, 255, 255, 0.6);
     }
     .container > .bar {
         display: none;
+    }
+    a.btn, a.btn:visited {
+        width: 10em;
     }
 }
 
